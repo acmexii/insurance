@@ -1,6 +1,7 @@
 package insurance.domain;
 
 import insurance.ReviewApplication;
+import insurance.domain.Reviewed;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
@@ -16,6 +17,12 @@ public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @PostPersist
+    public void onPostPersist() {
+        Reviewed reviewed = new Reviewed(this);
+        reviewed.publishAfterCommit();
+    }
 
     public static ReviewRepository repository() {
         ReviewRepository reviewRepository = ReviewApplication.applicationContext.getBean(

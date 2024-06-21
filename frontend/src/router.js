@@ -5,11 +5,14 @@ import Router from 'vue-router'
 Vue.use(Router);
 
 
-import Manager from "./components/listers/Cards"
-import Detail from "./components/listers/Detail"
+import ClaimReceiptManager from "./components/listers/ClaimReceiptCards"
+import ClaimReceiptDetail from "./components/listers/ClaimReceiptDetail"
 
 import ReviewReviewManager from "./components/listers/ReviewReviewCards"
 import ReviewReviewDetail from "./components/listers/ReviewReviewDetail"
+
+import PayPaymentManager from "./components/listers/PayPaymentCards"
+import PayPaymentDetail from "./components/listers/PayPaymentDetail"
 
 
 export default new Router({
@@ -17,14 +20,14 @@ export default new Router({
     base: process.env.BASE_URL,
     routes: [
             {
-                path: '//',
-                name: 'Manager',
-                component: Manager
+                path: '/claims/receipts',
+                name: 'ClaimReceiptManager',
+                component: ClaimReceiptManager
             },
             {
-                path: '///:id',
-                name: 'Detail',
-                component: Detail
+                path: '/claims/receipts/:id',
+                name: 'ClaimReceiptDetail',
+                component: ClaimReceiptDetail
             },
 
             {
@@ -36,6 +39,17 @@ export default new Router({
                 path: '/reviews/reviews/:id',
                 name: 'ReviewReviewDetail',
                 component: ReviewReviewDetail
+            },
+
+            {
+                path: '/pays/payments',
+                name: 'PayPaymentManager',
+                component: PayPaymentManager
+            },
+            {
+                path: '/pays/payments/:id',
+                name: 'PayPaymentDetail',
+                component: PayPaymentDetail
             },
 
 

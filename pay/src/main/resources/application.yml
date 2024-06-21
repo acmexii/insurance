@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: review
+    name: pay
 ---
 
 spring:
@@ -29,7 +29,7 @@ spring:
                   serde: org.apache.kafka.common.serialization.Serdes$StringSerde
       bindings:
         event-in:
-          group: review
+          group: pay
 #<<< EDA / Topic Name
           destination: insurance
 #>>> EDA / Topic Name
@@ -47,7 +47,7 @@ logging:
 
 
 server:
-  port: 8083
+  port: 8084
 
 ---
 
@@ -74,7 +74,7 @@ spring:
                   serde: org.apache.kafka.common.serialization.Serdes$StringSerde
       bindings:
         event-in:
-          group: review
+          group: pay
           destination: insurance
           contentType: application/json
         event-out:
