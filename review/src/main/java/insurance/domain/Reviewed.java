@@ -6,19 +6,15 @@ import java.time.LocalDate;
 import java.util.*;
 import lombok.*;
 
-//<<< DDD / Domain Event
 @Data
 @ToString
 public class Reviewed extends AbstractEvent {
 
     private Long id;
-
     public Reviewed(Review aggregate) {
         super(aggregate);
     }
-
     public Reviewed() {
         super();
     }
 }
-//>>> DDD / Domain Event
